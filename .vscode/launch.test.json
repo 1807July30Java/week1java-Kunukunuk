@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "core",
+                "projectName": "core",
+                "workingDirectory": "/Users/kunhuang/GitRepository/week1java-Kunukunuk-1",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "core",
+                "projectName": "core",
+                "workingDirectory": "/Users/kunhuang/GitRepository/week1java-Kunukunuk-1",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}

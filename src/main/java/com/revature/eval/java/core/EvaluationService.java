@@ -1,6 +1,7 @@
 package com.revature.eval.java.core;
 
 import java.time.temporal.Temporal;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -207,12 +208,10 @@ public class EvaluationService {
 	 */
 	public String cleanPhoneNumber(String string) {
 		// TODO Write an implementation for this method declaration
-		String phoneNum = "";
-
-		for (int i =0; i < string.length(); i++) {
-
+		String phoneNum = string.replaceAll("\\D+", "");
+		if (phoneNum.length() < 9 || phoneNum.length() > 10) {
+			throw new IllegalArgumentException();
 		}
-		
 		return phoneNum;
 	}
 
@@ -227,7 +226,18 @@ public class EvaluationService {
 	 */
 	public Map<String, Integer> wordCount(String string) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		Map<String, Integer> wCounts = new HashMap<>();
+		string = string.replaceAll("\\W+", " ");
+		String[] sArray = string.split(" ");
+		for (int i =0; i < sArray.length; i++) {
+			if (wCounts.containsKey(sArray[i])) {
+				wCounts.put(sArray[i], wCounts.get(sArray[i]) + 1);
+			} else {
+				wCounts.put(sArray[i], 1);
+			}
+
+		}
+		return wCounts;
 	}
 
 	/**

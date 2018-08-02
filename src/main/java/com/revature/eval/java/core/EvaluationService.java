@@ -280,7 +280,17 @@ public class EvaluationService {
 
 		public int indexOf(T t) {
 			// TODO Write an implementation for this method declaration
-			return 0;
+			int beg = 0, end = sortedList.size() -1, mid = (beg+end)/2;
+			while (!sortedList.get(mid).equals(t)) {
+
+				mid = (beg+end)/2;
+				if (sortedList.get(mid).hashCode() < t.hashCode() ) {
+					beg = beg + 1;
+				} else {
+					end = end - 1;
+				}
+			}
+			return mid;
 		}
 
 		public BinarySearch(List<T> sortedList) {

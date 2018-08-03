@@ -2,6 +2,7 @@ package com.revature.eval.java.core;
 
 import java.time.temporal.Temporal;
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -327,7 +328,28 @@ public class EvaluationService {
 	 */
 	public String toPigLatin(String string) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		string = string.toLowerCase();
+		String pigLatin = "";
+		String[] words = string.split(" ");
+		
+		for (String w : words ) {
+			for (int i = 0; i < w.length(); i ++) {
+				if (w.charAt(i) == 'a'|| w.charAt(i) == 'e' || w.charAt(i) == 'i' || w.charAt(i) == 'o' || w.charAt(i) == 'u') {
+					if (i == 0) {
+						pigLatin = pigLatin + w + "ay ";
+					} else {
+						if (w.charAt(i) == 'u' && w.charAt(i-1) == 'q'){
+							continue;
+						}
+						pigLatin = pigLatin + w.substring(i) + w.substring(0, i) + "ay ";
+					}
+					break;
+				}
+			}
+		}
+		
+		pigLatin = pigLatin.trim();
+		return pigLatin;
 	}
 
 	/**
@@ -347,6 +369,22 @@ public class EvaluationService {
 	 */
 	public boolean isArmstrongNumber(int input) {
 		// TODO Write an implementation for this method declaration
+		int sum = 0;
+		if ( input <= 9) {
+			return true;
+		} else {
+			String num = String.valueOf(input);
+			String[] eachNum = num.split("");
+			int power = num.length();
+			for (String en: eachNum) {
+				sum += Math.pow(Integer.parseInt(en), power);
+			}
+
+		}
+
+		if ( sum == input) {
+			return true;
+		}
 		return false;
 	}
 
@@ -362,6 +400,9 @@ public class EvaluationService {
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
 		// TODO Write an implementation for this method declaration
+		List<Long> factor = new ArrayList<Long>();
+
+
 		return null;
 	}
 
